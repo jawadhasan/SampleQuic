@@ -1,0 +1,42 @@
+﻿@model WebApplication30.Models.tblStudent
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblStudent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STD_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STD_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STD_ENROLL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STD_ENROLL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STD_PWD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STD_PWD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.STD_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

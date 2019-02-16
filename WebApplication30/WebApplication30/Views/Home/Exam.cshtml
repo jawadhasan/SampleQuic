@@ -1,0 +1,52 @@
+﻿@using WebApplication30.Models
+@model StudentExamViewModel
+
+@{
+    ViewBag.Title = "Student Exam";
+}
+
+<h2>
+    @Html.DisplayFor(m => m.QuizText)
+</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.QuizId)
+    <div>
+        <i class="fa fa-user fa-2x"></i>
+        <span> @Html.DisplayFor(m => m.StudentName)</span>
+    </div>
+    for (int j = 0; j < Model.QuestionsList.Count; j++)
+                {
+                    @Html.HiddenFor(m => m.QuestionsList[j].QuestionId)
+                    <h3>
+                         @Html.DisplayFor(m => m.QuestionsList[j].QuestionText)
+                    </h3>
+                    foreach (var answer in Model.QuestionsList[j].Answers)
+                    {
+                        <div>
+                            @Html.RadioButtonFor(m => m.QuestionsList[j].SelectedAnswerId,
+                                answer.Id, 
+                                new { id = answer.Id })
+                            <label for="@answer.Id">@answer.AnswerText</label>
+                            @Html.ValidationMessageFor(m => m.QuestionsList[j].SelectedAnswerId, "", new { @class = "text-danger" })
+
+                        </div>
+                    }
+                }
+    <br/><br/>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

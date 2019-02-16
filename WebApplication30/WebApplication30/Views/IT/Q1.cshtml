@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Q1";
+}
+
+<h2>Q1</h2>
+<form action="~/IT/Q1" method="post">
+    <h3>HTML stands for?</h3>
+
+    <input type="radio" name="radio1" value="HyperText Markup Language" />HyperText Markup Language
+    <br />
+    <input type="radio" name="radio1" value="Hyper Markup Language" />Hyper Markup Language
+    <br />
+    <input type="radio" name="radio1" value="HyperText Markups Language" />HyperText Markups Language
+    <br />
+    <input type="radio" name="radio1" value="HyperText Makeup Language" />HyperText Makeup Language
+
+    <div class="container">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <input type="submit" name="name" value="Next" />
+        </div>
+    </div>
+</form>
+
+<div>@Session["marks"]</div>

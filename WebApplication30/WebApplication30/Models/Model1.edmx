@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbQuiz17Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblResult">
+          <Key>
+            <PropertyRef Name="RES_ID" />
+          </Key>
+          <Property Name="RES_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RES_NAME" Type="nvarchar(max)" />
+          <Property Name="RES_ENROLL" Type="nvarchar(max)" />
+          <Property Name="RES_MARKS" Type="float" />
+        </EntityType>
+        <EntityType Name="tblStudent">
+          <Key>
+            <PropertyRef Name="STD_ID" />
+          </Key>
+          <Property Name="STD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STD_NAME" Type="nvarchar(max)" />
+          <Property Name="STD_ENROLL" Type="nvarchar(max)" />
+          <Property Name="STD_PWD" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityContainer Name="dbQuiz17ModelStoreContainer">
+          <EntitySet Name="tblResult" EntityType="Self.tblResult" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStudent" EntityType="Self.tblStudent" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbQuiz17Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblResult">
+          <Key>
+            <PropertyRef Name="RES_ID" />
+          </Key>
+          <Property Name="RES_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RES_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RES_ENROLL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RES_MARKS" Type="Double" />
+        </EntityType>
+        <EntityType Name="tblStudent">
+          <Key>
+            <PropertyRef Name="STD_ID" />
+          </Key>
+          <Property Name="STD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STD_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STD_ENROLL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="STD_PWD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="dbQuiz17Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblResults" EntityType="Self.tblResult" />
+          <EntitySet Name="tblStudents" EntityType="Self.tblStudent" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbQuiz17ModelStoreContainer" CdmEntityContainer="dbQuiz17Entities">
+          <EntitySetMapping Name="tblResults">
+            <EntityTypeMapping TypeName="dbQuiz17Model.tblResult">
+              <MappingFragment StoreEntitySet="tblResult">
+                <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+                <ScalarProperty Name="RES_NAME" ColumnName="RES_NAME" />
+                <ScalarProperty Name="RES_ENROLL" ColumnName="RES_ENROLL" />
+                <ScalarProperty Name="RES_MARKS" ColumnName="RES_MARKS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStudents">
+            <EntityTypeMapping TypeName="dbQuiz17Model.tblStudent">
+              <MappingFragment StoreEntitySet="tblStudent">
+                <ScalarProperty Name="STD_ID" ColumnName="STD_ID" />
+                <ScalarProperty Name="STD_NAME" ColumnName="STD_NAME" />
+                <ScalarProperty Name="STD_ENROLL" ColumnName="STD_ENROLL" />
+                <ScalarProperty Name="STD_PWD" ColumnName="STD_PWD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
